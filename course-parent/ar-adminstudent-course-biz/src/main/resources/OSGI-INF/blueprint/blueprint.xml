@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<blueprint xmlns:jpa="http://aries.apache.org/xmlns/jpa/v2.0.0"
+           xmlns:tx="http://aries.apache.org/xmlns/transactions/v1.2.0"
+           xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0">
+    <jpa:enable/>
+    <tx:enable-annotations/>
+
+    <reference id="courseSelectBeanDao" interface="com.kalix.ar.adminstudent.course.api.dao.ICourseSelectBeanDao"/>
+    <reference id="courseCollectBeanDao" interface="com.kalix.ar.adminstudent.course.api.dao.ICourseCollectBeanDao"/>
+    <!--<reference id="courseBeanService" interface="com.kalix.ar.adminteacher.course.api.biz.ICourseBeanService"/>-->
+
+    <!--选课服务注册-->
+    <bean id="courseSelectBeanServiceImpl" class="com.kalix.ar.adminstudent.course.biz.CourseSelectBeanServiceImpl">
+        <property name="dao" ref="courseSelectBeanDao"/>
+        <!--<property name="courseBeanService" ref="courseBeanService"/>-->
+    </bean>
+    <service id="courseSelectBeanService" ref="courseSelectBeanServiceImpl"
+             interface="com.kalix.ar.adminstudent.course.api.biz.ICourseSelectBeanService"/>
+
+    <!--课程收藏服务注册-->
+    <bean id="courseCollectBeanServiceImpl" class="com.kalix.ar.adminstudent.course.biz.CourseCollectBeanServiceImpl">
+        <property name="dao" ref="courseCollectBeanDao"/>
+        <!--<property name="courseBeanService" ref="courseBeanService"/>-->
+    </bean>
+    <service id="courseCollectBeanService" ref="courseCollectBeanServiceImpl"
+             interface="com.kalix.ar.adminstudent.course.api.biz.ICourseCollectBeanService"/>
+
+</blueprint>

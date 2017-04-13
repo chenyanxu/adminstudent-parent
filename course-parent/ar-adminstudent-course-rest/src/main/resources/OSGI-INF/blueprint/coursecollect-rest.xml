@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<blueprint xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
+           xsi:schemaLocation="http://www.osgi.org/xmlns/blueprint/v1.0.0 http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd
+       http://camel.apache.org/schema/blueprint http://camel.apache.org/schema/blueprint/camel-blueprint.xsd">
+    <reference id="coursecollectService" interface="com.kalix.ar.adminstudent.course.api.biz.ICourseCollectBeanService"/>
+
+    <bean id="courseCollectRoute" class="com.kalix.framework.core.impl.camel.BaseRouteBuilder">
+        <property name="beanName" value="com.kalix.ar.adminstudent.course.entities.CourseCollectBean"/>
+        <property name="rests">
+            <list>
+                <bean class="com.kalix.framework.core.api.camel.CustomRest">
+                    <property name="path" value="/coursecollects/courses"/>
+                    <property name="getDescription" value="查询所有收藏课程"/>
+                    <property name="getOutType" value="com.kalix.framework.core.api.persistence.JsonData"/>
+                    <property name="getToUri" value="bean:coursecollectService?method=getAllCourseCollect(${header.page},${header.limit},${header.jsonStr},${header.sort})"/>
+                </bean>
+                <bean class="com.kalix.framework.core.api.camel.CustomRest">
+                    <property name="path" value="/coursecollects/{studentid}/courses"/>
+                    <property name="getDescription" value="查询指定学生id下的收藏课程"/>
+                    <property name="getParams" value="studentid:path:long::学生id"/>
+                    <property name="getOutType" value="com.kalix.framework.core.api.persistence.JsonData"/>
+                    <property name="getToUri" value="bean:coursecollectService?method=getCourseCollectDTOByStudentId(${header.studentid},${header.page},${header.limit},${header.jsonStr},${header.sort})"/>
+                </bean>
+                <bean class="com.kalix.framework.core.api.camel.CustomRest">
+                    <property name="path" value="/coursecollects/{courseid}/students"/>
+                    <property name="getDescription" value="查询指定课程id下收藏课程的学生"/>
+                    <property name="getParams" value="courseid:path:long::课程id"/>
+                    <property name="getOutType" value="com.kalix.framework.core.api.persistence.JsonData"/>
+                    <property name="getToUri" value="bean:coursecollectService?method=getCourseCollectDTOByCourseId(${header.courseid},${header.page},${header.limit},${header.jsonStr},${header.sort})"/>
+                </bean>
+            </list>
+        </property>
+    </bean>
+
+    <camelContext id="courseCollectCamel" xmlns="http://camel.apache.org/schema/blueprint">
+        <routeBuilder ref="courseCollectRoute"/>
+    </camelContext>
+</blueprint>

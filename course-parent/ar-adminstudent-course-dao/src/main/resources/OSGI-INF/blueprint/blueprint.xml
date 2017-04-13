@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- default-activation="lazy" -->
+<blueprint xmlns:jpa="http://aries.apache.org/xmlns/jpa/v2.0.0"
+           xmlns:tx="http://aries.apache.org/xmlns/transactions/v1.2.0"
+           xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0">
+    <jpa:enable/>
+    <tx:enable-annotations/>
+
+    <!-- 选课Dao -->
+    <bean id="courseSelectBeanDaoImpl" class="com.kalix.ar.adminstudent.course.dao.CourseSelectBeanDaoImpl"> <!--init-method="init">-->
+        <tx:transaction method="*" value="Required"/>
+    </bean>
+    <service id="courseSelectBeanDao" ref="courseSelectBeanDaoImpl" interface="com.kalix.ar.adminstudent.course.api.dao.ICourseSelectBeanDao"/>
+
+    <!-- 课程收藏Dao -->
+    <bean id="courseCollectBeanDaoImpl" class="com.kalix.ar.adminstudent.course.dao.CourseCollectBeanDaoImpl">
+        <tx:transaction method="*" value="Required"/>
+    </bean>
+    <service id="courseCollectBeanDao" ref="courseCollectBeanDaoImpl" interface="com.kalix.ar.adminstudent.course.api.dao.ICourseCollectBeanDao"/>
+
+    <!--<bean id="dutyUserBeanDaoImpl" class="com.kalix.admin.duty.dao.DutyUserBeanDaoImpl">
+        <tx:transaction method="*" value="Required"/>
+    </bean>-->
+</blueprint>

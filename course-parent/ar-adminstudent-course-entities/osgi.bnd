@@ -1,0 +1,8 @@
+#-----------------------------------------------------------------
+# Use this file to add customized Bnd instructions for the bundle
+#-----------------------------------------------------------------
+
+Bundle-Activator: ${bundle.namespace}.internal.InitActivator
+Meta-Persistence: META-INF/persistence-jpa.xml
+Bundle-Category: Kalix AR AdminStudent Course
+Import-Package:com.kalix.ar.adminstudent.student.entities,com.kalix.ar.adminteacher.course.entities,*

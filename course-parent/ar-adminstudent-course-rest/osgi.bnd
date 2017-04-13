@@ -1,0 +1,11 @@
+#-----------------------------------------------------------------
+# Use this file to add customized Bnd instructions for the bundle
+#-----------------------------------------------------------------
+
+Bundle-Activator: ${bundle.namespace}.internal.InitActivator
+Import-Package: com.kalix.framework.core.api.biz,\
+                com.kalix.framework.core.api.persistence,\
+                com.kalix.ar.adminstudent.course.entities,\
+                com.kalix.ar.adminstudent.course.dto.model,*
+Include-Resource: target/classes
+Bundle-Category: Kalix AR AdminStudent Course
