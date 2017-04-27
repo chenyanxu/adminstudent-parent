@@ -23,15 +23,4 @@ Ext.define('kalix.adminstudent.student.component.UserComboBox', {
         type: 'studentUserStore',
         autoLoad: true
     }
-    //,
-    //getParams: function (queryString) {
-    //    var params = {},
-    //        param = this.queryParam;
-    //
-    //    if (param) {
-    //        params[param] = '{"%' + this.displayField + '%":"' + queryString + '"}';
-    //    }
-    //
-    //    return params;
-    //}
 });

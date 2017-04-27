@@ -9,7 +9,7 @@
 Ext.define('kalix.adminstudent.student.view.UserViewWindow', {
     extend: 'kalix.view.components.common.BaseWindow',
     alias: 'widget.studentUserViewWindow',
-    xtype: "studentUserViewWindow",
+    xtype: 'studentUserViewWindow',
     width: 400,
     items: [{
         defaults: {readOnly: true},
@@ -85,7 +85,7 @@ Ext.define('kalix.adminstudent.student.view.UserViewWindow', {
                 bind: {
                     value: '{rec.available}'
                 }
-            }]
+            }
+        ]
     }]
-
 });

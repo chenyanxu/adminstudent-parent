@@ -23,7 +23,7 @@ Ext.define('kalix.adminstudent.courseselect.view.CourseSelectSearchForm', {
                 autoLoad: true,
                 proxyUrl: CONFIG.restRoot + '/camel/rest/students'
             }),
-            queryParam: '%name%',
+            queryParam: '%name%'
         }
     ]
 });

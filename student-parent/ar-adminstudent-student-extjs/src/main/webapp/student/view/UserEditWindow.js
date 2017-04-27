@@ -9,14 +9,14 @@
 Ext.define('kalix.adminstudent.student.view.UserEditWindow', {
     extend: 'kalix.view.components.common.BaseWindow',
     requires: [
-        'kalix.controller.BaseWindowController',
+        'kalix.controller.BaseWindowController'
     ],
     alias: 'widget.studentUserWindow',
     controller: {
         type: 'baseWindowController',
         storeId: 'studentUserStore'
     },
-    xtype: "studentUserWindow",
+    xtype: 'studentUserWindow',
     width: 400,
     items: [{
         xtype: 'baseForm',
@@ -91,6 +91,7 @@ Ext.define('kalix.adminstudent.student.view.UserEditWindow', {
                 bind: {
                     value: '{rec.skills}'
                 }
-            }]
+            }
+        ]
     }]
 });

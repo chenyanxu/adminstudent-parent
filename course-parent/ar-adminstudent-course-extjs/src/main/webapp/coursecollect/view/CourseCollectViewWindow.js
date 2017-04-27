@@ -9,7 +9,7 @@
 Ext.define('kalix.adminstudent.coursecollect.view.CourseCollectViewWindow', {
     extend: 'kalix.view.components.common.BaseWindow',
     alias: 'widget.courseCollectViewWindow',
-    xtype: "courseCollectViewWindow",
+    xtype: 'courseCollectViewWindow',
     width: 400,
     items: [{
         defaults: {readOnly: true},

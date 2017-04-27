@@ -86,8 +86,7 @@ Ext.define('kalix.adminstudent.coursecollect.view.CourseCollectGrid', {
         permission: 'view',
         tooltip: '查看',
         handler: 'onView'
-      }
-      ]
+      }]
     }
   ]
 });

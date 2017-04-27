@@ -32,7 +32,7 @@ Ext.define('kalix.adminstudent.coursecollect.view.StudentCollectContainer', {
         listeners: {
           itemClick: 'onItemClick'
         },
-        tbar:null,
+        tbar:null
       }
     },
     {

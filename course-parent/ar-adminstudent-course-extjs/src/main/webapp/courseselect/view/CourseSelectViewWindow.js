@@ -9,7 +9,7 @@
 Ext.define('kalix.adminstudent.courseselect.view.CourseSelectViewWindow', {
     extend: 'kalix.view.components.common.BaseWindow',
     alias: 'widget.courseSelectViewWindow',
-    xtype: "courseSelectViewWindow",
+    xtype: 'courseSelectViewWindow',
     width: 400,
     items: [{
         defaults: {readOnly: true},
@@ -35,6 +35,7 @@ Ext.define('kalix.adminstudent.courseselect.view.CourseSelectViewWindow', {
                 bind: {
                     value: '{rec.teachername}'
                 }
-            }]
+            }
+        ]
     }]
 });

@@ -65,6 +65,6 @@ Ext.define('kalix.adminstudent.student.model.UserModel', {
     },
     {
       name: 'skills'
-    },
+    }
   ]
 });

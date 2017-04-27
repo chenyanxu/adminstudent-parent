@@ -11,7 +11,7 @@ Ext.define('kalix.adminstudent.courseselect.controller.CourseSelectTreeListContr
     onItemClick: function (view, record, item, index, e) {
         var courseSelectGrid = this.getView().items.getAt(1);
         var store = courseSelectGrid.store;
-        if (record.data.code == "course") {
+        if (record.data.code == 'course') {
             store.proxy.url = CONFIG.restRoot +'/camel/rest/courseselects/' + record.data.id + '/students';
             store.reload();
             /*store.proxy.url = CONFIG.restRoot +'/camel/rest/courseselects/courses';

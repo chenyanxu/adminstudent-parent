@@ -32,7 +32,7 @@ Ext.define('kalix.adminstudent.courseselect.view.StudentContainer', {
         listeners: {
           itemClick: 'onItemClick'
         },
-        tbar:null,
+        tbar:null
       }
     },
     {
